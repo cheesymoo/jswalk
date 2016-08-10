@@ -1,7 +1,31 @@
-var matrix = [[0.5,  0.25, 0.25],
-              [0.5,  0,    0.5],
-              [0.25, 0.25, 0.5]];
+'use strict';
 
+var jswalk = angular.module('jswalk', []);
+
+jswalk.controller('matrixController', function matrixController($scope) {
+    $scope.matrix = [
+        {
+            heading: 'sa',
+            rows: [0.1, 0.7, 0, 0.2, 0, 0]
+        }, {
+            heading: 're',
+            rows: [0.4, 0.3, 0.4, 0, 0, 0]
+        }, {
+            heading: 'ga',
+            rows: [0, 0.4, 0.3, 0.4, 0, 0]
+        }, {
+            heading: 'pa',
+            rows: [0.2, 0, 0.2, 0.4, 0.2, 0]
+        }, {
+            heading: 'ni',
+            rows: [0, 0, 0, 0.3, 0.2, 0.5]
+        }, {
+            heading: 'sa\'',
+            rows: [0.1, 0, 0, 0, 0.4, 0.5]
+        }
+    ];
+});
+/*
 var rand = function(min, max) {
     return Math.random() * (max - min) + min;
 }
@@ -62,3 +86,4 @@ var getMatrix = function() {
 var play = function() {
     jam(getMatrix());
 }
+*/
