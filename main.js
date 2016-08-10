@@ -3,7 +3,8 @@
 var jswalk = angular.module('jswalk', []);
 
 jswalk.controller('matrixController', function matrixController($scope) {
-    $scope.matrix = [
+    $scope.matrix = {
+        columns: [
         {
             heading: 'sa',
             rows: [0.1, 0.7, 0, 0.2, 0, 0]
@@ -23,7 +24,9 @@ jswalk.controller('matrixController', function matrixController($scope) {
             heading: 'sa\'',
             rows: [0.1, 0, 0, 0, 0.4, 0.5]
         }
-    ];
+        ],
+        headings: ['', 'sa', 're', 'ga', 'pa', 'ni', 'sa\'']
+    }
 });
 /*
 var rand = function(min, max) {

@@ -1,0 +1,51 @@
+body {
+    padding: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    padding: 0.5rem;
+    border: 0.3rem solid #1e3a5d;
+}
+
+td {
+    text-align: left;
+    border: 0.1rem solid #1e3a5d;
+}
+
+th {
+    text-align: left;
+    border: 0.1rem solid #1e3a5d;
+}
+
+input[type=button] {
+   border-top: 1px solid #4888b0;
+   background: #1c4f6e;
+   background: -webkit-gradient(linear, left top, left bottom, from(#0fafba), to(#1c4f6e));
+   background: -webkit-linear-gradient(top, #0fafba, #1c4f6e);
+   background: -moz-linear-gradient(top, #0fafba, #1c4f6e);
+   background: -ms-linear-gradient(top, #0fafba, #1c4f6e);
+   background: -o-linear-gradient(top, #0fafba, #1c4f6e);
+   padding: 7.5px 15px;
+   -webkit-border-radius: 26px;
+   -moz-border-radius: 26px;
+   border-radius: 26px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: white;
+   font-size: 13px;
+   font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+.button:hover {
+   border-top-color: #28597a;
+   background: #28597a;
+   color: #ccc;
+   }
+.button:active {
+   border-top-color: #1b435e;
+   background: #1b435e;
+   }

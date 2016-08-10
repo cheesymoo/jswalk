@@ -1,15 +1,26 @@
 <html lang="en" ng-app="jswalk">
 <head>
     <title>Markov walks with Ragas</title>
+    <link rel="stylesheet" href="style.css" />
     <script src="node_modules/angular/angular.js"></script>
     <script src="main.js"></script>
 </head>
 <body>
     <table id="matrix" ng-controller="matrixController">
-        <tr ng-repeat="column in matrix">
-            <th>{{column.heading}}</th>
-            <td ng-repeat="row in column.rows track by $index">{{row}}</td>
-      </tr>
+        <caption>Sargam</caption>
+        <thead>
+            <th ng-repeat="heading in matrix.headings">{{heading}}</th>
+        </thead>
+        <tfoot>
+            <th ng-repeat="heading in matrix.headings">
+                <input type="button" value="{{heading}}"></input>
+            </th>
+        </tfoot>
+        <tbody>
+            <tr ng-repeat="column in matrix.columns">
+                <th>{{column.heading}}</th>
+                <td ng-repeat="row in column.rows track by $index">{{row}}</td>
+            </tr>
+        </tbody>
     </table>
-    <input type="button" onclick="play()">Play!</input>
 </html>
