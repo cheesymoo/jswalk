@@ -6,6 +6,35 @@
         </script>
     </head>
     <body>
-        <div><p>Take a walk!</p></div>
+        <div>
+            <p>Take a walk!</p>
+            <table id="matrix">
+              <tr>
+                <th>xx</th>
+                <th>Do</th>
+                <th>Re</th>
+                <th>Mi</th>
+              </tr>
+              <tr>
+                <th>Do</th>
+                <td><input type="number" value="0.5" onchange="updateCell"></input></td>
+                <td><input type="number" value="0.25"></input></td>
+                <td><input type="number" value="0.25"></input></td>
+              </tr>
+              <tr>
+                <th>Re</th>
+                <td><input type="number" value="0.5"></input></td>
+                <td><input type="number" value="0"></input></td>
+                <td><input type="number" value="0.5"></input></td>
+              </tr>
+              <tr>
+                <th>Mi</th>
+                <td><input type="number" value="0.25"></input></td>
+                <td><input type="number" value="0.25"></input></td>
+                <td><input type="number" value="0.5"></input></td>
+              </tr>
+            </table>
+            <input type="button" onclick="play()">Play!</input>
+        </div>
     </body>
 </html>

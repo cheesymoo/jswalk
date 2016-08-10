@@ -37,4 +37,28 @@ var jam = function(mat) {
     }
 }
 
-jam(matrix);
+var updateCell = function(id) {
+    debugger
+}
+
+var getMatrix = function() {
+    var table = document.getElementById("matrix");
+    var rowLength = table.rows.length;
+    var matrix = [[0,0,0],[0,0,0],[0,0,0]];
+    var item = 0;
+
+    for (i = 0; i < rowLength; i++){
+        var oCells = table.rows.item(i).cells;
+        var cellLength = oCells.length;
+
+        for(var j = 0; j < cellLength; j++){
+           item = oCells.item(j).innerHTML;
+           //matrix[i-1][j-1] = oCells.item(j).innerHTML;
+        }
+    }
+    return matrix;
+}
+
+var play = function() {
+    jam(getMatrix());
+}
