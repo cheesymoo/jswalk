@@ -14,7 +14,7 @@
         </thead>
         <tfoot>
             <th ng-repeat="heading in matrix.headings">
-                <input type="button" value="{{heading}}" onclick="play()"></input>
+                <input type="button" value="{{heading}}" ng-click="play(heading)"></input>
             </th>
         </tfoot>
         <tbody>

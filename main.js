@@ -35,7 +35,11 @@ jswalk.controller('matrixController', function matrixController($scope) {
         }
         ],
         headings: list
-    }
+    };
+
+    $scope.play = function(pitch) {
+        jam(matrix, pitch);
+    };
 });
 
 var rand = function(min, max) {
@@ -64,10 +68,10 @@ var getRandomItem = function(list, weight) {
 var synth = new Tone.Synth().toMaster();
 Tone.Transport.bpm.value = 120
 
-var jam = function(mat) {
+var jam = function(mat, start) {
     var random_item = 0;
     var weight = mat[0];
-    var note = 'C4';
+    var note = start || 'C4';
     var now = Tone.now();
     var sched = now;
     for (var i = 0; i < 20; i++) {
@@ -80,8 +84,3 @@ var jam = function(mat) {
         weight = mat[random_item];
     }
 };
-
-var play = function() {
-    jam(matrix);
-};
-
