@@ -5,7 +5,8 @@
   "main": "main.js",
   "dependencies": {
     "angular": "^1.5.8",
-    "http-server": "^0.9.0"
+    "http-server": "^0.9.0",
+    "tone": "^0.7.1"
   },
   "devDependencies": {},
   "scripts": {

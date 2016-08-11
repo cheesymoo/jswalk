@@ -3,6 +3,7 @@
     <title>Markov walks with Ragas</title>
     <link rel="stylesheet" href="style.css" />
     <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/tone/build/tone.js"></script>
     <script src="main.js"></script>
 </head>
 <body>
@@ -13,7 +14,7 @@
         </thead>
         <tfoot>
             <th ng-repeat="heading in matrix.headings">
-                <input type="button" value="{{heading}}"></input>
+                <input type="button" value="{{heading}}" onclick="play()"></input>
             </th>
         </tfoot>
         <tbody>
