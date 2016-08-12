@@ -4,6 +4,7 @@ body {
 
 table {
     border-collapse: collapse;
+    color: #1c4f6e;
     padding: 0.5rem;
     border: 0.3rem solid #1e3a5d;
 }

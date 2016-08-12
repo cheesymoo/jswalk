@@ -20,7 +20,7 @@
         <tbody>
             <tr ng-repeat="column in matrix.columns">
                 <th>{{column.heading}}</th>
-                <td ng-repeat="row in column.rows track by $index">{{row}}</td>
+                <td ng-repeat="row in column.rows track by $index"><input type="number" min="0" step="0.1" ng-model="row"></input></td>
             </tr>
         </tbody>
     </table>
