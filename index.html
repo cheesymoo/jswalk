@@ -7,20 +7,20 @@
     <script src="main.js"></script>
 </head>
 <body>
-    <table id="matrix" ng-controller="matrixController">
+    <table id="table" ng-controller="tableController">
         <caption>Sargam</caption>
         <thead>
-            <th ng-repeat="heading in matrix.headings">{{heading}}</th>
+            <th ng-repeat="heading in table.headings">{{heading}}</th>
         </thead>
         <tfoot>
-            <th ng-repeat="heading in matrix.headings">
+            <th ng-repeat="heading in table.headings">
                 <input type="button" value="{{heading}}" ng-click="play(heading)"></input>
             </th>
         </tfoot>
         <tbody>
-            <tr ng-repeat="column in matrix.columns">
+            <tr ng-repeat="column in table.columns">
                 <th>{{column.heading}}</th>
-                <td ng-repeat="row in column.rows track by $index"><input type="number" min="0" step="0.1" ng-model="row"></input></td>
+                <td ng-repeat="row in column.rows track by $index"><input type="number" min="0" step="0.1" ng-model="column.rows[$index]"></input></td>
             </tr>
         </tbody>
     </table>

@@ -2,43 +2,44 @@
 
 var jswalk = angular.module('jswalk', []);
 var list = ['', 'C4', 'D4', 'E4', 'G4', 'B4', 'C5'];
-var matrix = [
-    [0.1, 0.7, 0, 0.2, 0, 0],
-    [0.4, 0.3, 0.4, 0, 0, 0],
-    [0, 0.4, 0.3, 0.4, 0, 0],
-    [0.2, 0, 0.2, 0.4, 0.2, 0],
-    [0, 0, 0, 0.3, 0.2, 0.5],
-    [0.1, 0, 0, 0, 0.4, 0.5 ]
-];
 
-jswalk.controller('matrixController', function matrixController($scope) {
-    $scope.matrix = {
+jswalk.controller('tableController', function tableController($scope) {
+    $scope.matrix = [
+        [0.1, 0.7, 0, 0.2, 0, 0],
+        [0.4, 0.3, 0.4, 0, 0, 0],
+        [0, 0.4, 0.3, 0.4, 0, 0],
+        [0.2, 0, 0.2, 0.4, 0.2, 0],
+        [0, 0, 0, 0.3, 0.2, 0.5],
+        [0.1, 0, 0, 0, 0.4, 0.5 ]
+    ];
+
+    $scope.table = {
         columns: [
         {
             heading: list[1],
-            rows: matrix[0]
+            rows: $scope.matrix[0]
         }, {
             heading: list[2],
-            rows: matrix[1]
+            rows: $scope.matrix[1]
         }, {
             heading: list[3],
-            rows: matrix[2]
+            rows: $scope.matrix[2]
         }, {
             heading: list[4],
-            rows: matrix[3]
+            rows: $scope.matrix[3]
         }, {
             heading: list[5],
-            rows: matrix[4]
+            rows: $scope.matrix[4]
         }, {
             heading: list[6],
-            rows: matrix[5]
+            rows: $scope.matrix[5]
         }
         ],
         headings: list
     };
 
     $scope.play = function(pitch) {
-        jam(matrix, pitch);
+        jam($scope.matrix, pitch);
     };
 });
 
@@ -75,12 +76,12 @@ var jam = function(mat, start) {
     var now = Tone.now();
     var sched = now;
     for (var i = 0; i < 20; i++) {
-        random_item = getRandomItem(list, weight);
-        note = list[random_item];
-        sched += 0.25;
         if (note !== '') {
             synth.triggerAttackRelease(note, 0.25, sched);
         }
+        random_item = getRandomItem(list, weight);
+        note = list[random_item];
+        sched += 0.25;
         weight = mat[random_item];
     }
 };
