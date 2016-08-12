@@ -1,7 +1,6 @@
 'use strict';
 
 var jswalk = angular.module('jswalk', []);
-var list = ['', 'C4', 'D4', 'E4', 'G4', 'B4', 'C5'];
 
 jswalk.controller('tableController', function tableController($scope) {
     $scope.matrix = [
@@ -12,34 +11,35 @@ jswalk.controller('tableController', function tableController($scope) {
         [0, 0, 0, 0.3, 0.2, 0.5],
         [0.1, 0, 0, 0, 0.4, 0.5 ]
     ];
+    $scope.list = ['', 'C4', 'D4', 'E4', 'G4', 'B4', 'C5'];
 
     $scope.table = {
         columns: [
         {
-            heading: list[1],
+            heading: $scope.list[1],
             rows: $scope.matrix[0]
         }, {
-            heading: list[2],
+            heading: $scope.list[2],
             rows: $scope.matrix[1]
         }, {
-            heading: list[3],
+            heading: $scope.list[3],
             rows: $scope.matrix[2]
         }, {
-            heading: list[4],
+            heading: $scope.list[4],
             rows: $scope.matrix[3]
         }, {
-            heading: list[5],
+            heading: $scope.list[5],
             rows: $scope.matrix[4]
         }, {
-            heading: list[6],
+            heading: $scope.list[6],
             rows: $scope.matrix[5]
         }
         ],
-        headings: list
+        headings: $scope.list
     };
 
     $scope.play = function(pitch) {
-        jam($scope.matrix, pitch);
+        jam($scope.matrix, pitch, $scope.list.slice(1,7));
     };
 });
 
@@ -67,9 +67,9 @@ var getRandomItem = function(list, weight) {
 };
 
 var synth = new Tone.Synth().toMaster();
-Tone.Transport.bpm.value = 120
+Tone.Transport.bpm.value = 120;
 
-var jam = function(mat, start) {
+var jam = function(mat, start, list) {
     var random_item = 0;
     var weight = mat[0];
     var note = start || 'C4';
