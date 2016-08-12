@@ -13,6 +13,8 @@ caption {
     font-weight: lighter;
     font-size: -webkit-xxx-large;
     font-size: xx-large;
+    padding-bottom: 0.5rem;
+    text-transform: uppercase;
 }
 
 td {
