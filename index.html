@@ -14,12 +14,12 @@
         </thead>
         <tfoot>
             <th ng-repeat="heading in table.headings">
-                <input type="button" value="{{heading}}" ng-click="play(heading)"></input>
+                {{heading}}
             </th>
         </tfoot>
         <tbody>
             <tr ng-repeat="column in table.columns">
-                <th>{{column.heading}}</th>
+                <th><input type="button" value="{{column.heading + ' ->'}}" ng-click="play(column.heading)"></input></th>
                 <td ng-repeat="row in column.rows track by $index"><input type="number" min="0" step="0.1" ng-model="column.rows[$index]"></input></td>
             </tr>
         </tbody>
