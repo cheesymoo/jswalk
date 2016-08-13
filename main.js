@@ -66,22 +66,41 @@ var getRandomItem = function(list, weight) {
 
 };
 
+var beats = [0.125, 0.25, 0.5, 1, 1.5];
+var bMatrix = [[0.4, 0, 0.1, 0.1, 0.4],
+               [0, 0.5, 0.3, 0.1, 0.1],
+               [0, 0.2, 0.5, 0.2, 0.1],
+               [0, 0,   0.5, 0.3, 0.2],
+               [0, 0,   0.5, 0.3, 0.2]];
 var synth = new Tone.Synth().toMaster();
 Tone.Transport.bpm.value = 120;
 
 var jam = function(mat, start, list) {
     var random_item = 0;
+    var random_item2 = 0;
     var weight = mat[0];
+    var bWeight = bMatrix[0];
     var note = start || 'C4';
-    var now = Tone.now();
-    var sched = now;
-    for (var i = 0; i < 20; i++) {
-        if (note !== '') {
-            synth.triggerAttackRelease(note, 0.25, sched);
+    var beat = 0.25;
+    var sched = Tone.now();
+    var i = 0;
+    while (true) {
+        if ((note === 'C4' || note === 'C5') && i >= 12) {
+            synth.triggerAttackRelease(note, '1', sched);
+            break;
         }
+        if (note !== '') {
+            synth.triggerAttackRelease(note, beat, sched);
+        }
+        sched += beat;
+
         random_item = getRandomItem(list, weight);
         note = list[random_item];
-        sched += 0.25;
         weight = mat[random_item];
+
+        random_item2 = getRandomItem(beats, bWeight);
+        beat = beats[random_item2];
+        bWeight = bMatrix[random_item2];
+        i++;
     }
 };
